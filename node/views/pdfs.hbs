@@ -1,0 +1,11 @@
+<section>
+    <h2>Available PDFs</h2>
+
+    {{#each pdfList}}
+        <div class="pdf-item">
+            <h3>{{title}}</h3>
+            <p>{{description}}</p>
+            <a href="/pdfs/{{filename}}" target="_blank">View PDF</a>
+        </div>
+    {{/each}}
+</section>

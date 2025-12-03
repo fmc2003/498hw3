@@ -1,0 +1,59 @@
+#services:
+ # backend-nodejs:
+  #  build: ./node
+   # container_name: backend
+    #restart: unless-stopped
+#    environment:
+ #     - NODE_ENV=production
+  #    - PORT=3001
+  #  volumes:
+   #   - ./public:/app/public:ro
+    #networks:
+     # - app-network
+
+  #nginx:
+   # build:
+    #  context: ./nginx
+    #container_name: my-nginx
+    #restart: unless-stopped
+    #ports:
+     # - "83:83"
+    #depends_on:
+     # - backend-nodejs
+   # networks:
+    #  - app-network
+
+#networks:
+ # app-network:
+  #  driver: bridge
+
+services:
+  # Node.js Express application
+  backend-nodejs:
+    build: ./node
+    container_name: backend
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+    networks:
+      - app-network
+
+  # Nginx Proxy Manager
+  nginx-proxy-manager:
+    image: 'jc21/nginx-proxy-manager:latest'
+    container_name: nginx-proxy-manager
+    restart: unless-stopped
+    ports:
+      - '80:80'      # HTTP traffic
+      - '443:443'    # HTTPS traffic
+      - '5001:81'    # Admin web interface, pick an unusual port for security
+    volumes: # place to store all the data that we need persistant and external
+      - ./nginx/data:/data
+      - ./nginx/letsencrypt:/etc/letsencrypt
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

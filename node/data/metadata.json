@@ -1,0 +1,14 @@
+{
+  "Assignment2-1.pdf": {
+    "title": "Express Station",
+    "description": "For this assignment, you will create a Node.js server using Express.js that serves static files and provides a custom API endpoint. This assignment will server as the bridge between serving static files and providing information after calculations are done on the server side."
+  },
+  "Assignment3.pdf": {
+    "title": "Secure PDF Server",
+    "description": "For this assignment, you will create an Express + Nginx proxy manager server that serves a front-facing website with PDF document management capabilities. You will implement custom modules to handle routing, PDF discovery, and PDF validation. Additionally, you will set up your site with a domain name and HTTPS support. You’re free to pick the topic of your website, but it must be related to the PDF documents you are hosting."
+  },
+  "Midterm_Project-5.pdf": {
+    "title": "Wild West Forum",
+    "description": "Build an extremely insecure web forum as a stepping stone before we get to building more secure applications with databases. The application allows users to create minimal “accounts,” log in via a session cookie, and post comments. Views must be implemented using Handlebars with partials (e.g., a navigation bar). The entire stack must be containerized using Docker and the project must be maintained in a Git repository."
+  }
+}
